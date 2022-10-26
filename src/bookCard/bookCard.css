@@ -1,0 +1,59 @@
+.book-card {
+    width: 116px;
+    height: 249px;
+}
+
+.book-name {
+    width: 116px;
+    height: 34px;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    /* Gray 1 */
+
+    color: #333333;
+}
+
+.book-author {
+    width: 110px;
+    height: 30px;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #828282;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.book-price {
+    width: 47px;
+    height: 19px;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #333333;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}

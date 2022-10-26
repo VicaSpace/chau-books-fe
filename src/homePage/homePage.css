@@ -1,0 +1,45 @@
+.greet-title {
+    position: absolute;
+    left: 5.33%;
+    right: 68.53%;
+    top: 7.02%;
+    bottom: 88.79%;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: -0.28px;
+
+    /* Gray 1 */
+
+    color: #333333;
+}
+
+.greet-subtitle {
+    position: absolute;
+    left: 5.33%;
+    right: 45.33%;
+    top: 11.33%;
+    bottom: 86.33%;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: -0.28px;
+
+    color: #828282;
+}
+
+.books-section {
+    top: 150px;
+    display: flex;
+    position: relative;
+}

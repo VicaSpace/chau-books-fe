@@ -1,0 +1,98 @@
+.bookmark-page-title {
+    position: absolute;
+    width: 68px;
+    height: 19px;
+    left: 150px;
+    top: 52px;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+
+    position: absolute;
+    width: 241px;
+    height: 50px;
+    left: 69px;
+    top: 90px;
+
+    background: #FBFAF5;
+    border-radius: 117px;
+}
+
+.tab-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+
+    width: 113px;
+    height: 34px;
+
+    border-radius: 80px;
+}
+
+.tab-button .active {
+    background: #000000;
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.book-list {
+    position: absolute;
+    height: 500px;
+    top: 170px;
+}
+
+.book-title {
+    width: 133px;
+    height: 17px;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #333333;
+}
+
+.book-author {
+    width: 167px;
+    height: 15px;
+
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #9797AA;
+}
