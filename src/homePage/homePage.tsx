@@ -1,4 +1,4 @@
-import { HStack, VStack, Box } from '@chakra-ui/react';
+import { HStack, Container, Box, Image } from '@chakra-ui/react';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import BookCard from '../bookCard/bookCard';
@@ -26,7 +26,7 @@ function HomePage() {
   }, []);
 
   return (
-    <VStack>
+    <Container>
       <Box className="greet-title">Hi Chau</Box>
       <Box className="greet-subtitle">What are you reading today?</Box>
       <HStack overflow="auto" className="books-section">
@@ -40,7 +40,19 @@ function HomePage() {
           />
         ))}
       </HStack>
-    </VStack>
+      <Container className="premium-banner">
+        <Container className="premium-text">
+          Premium free for the next 3 Months
+        </Container>
+        <Container className="premium-icon" />
+      </Container>
+      <Box className="popular-authors-title">Popular authors</Box>
+      <HStack overflow="auto" className="authors-section">
+        {authors.map((author: any, i) => (
+          <Image key={i} borderRadius="full" boxSize="80px" src={author.img} />
+        ))}
+      </HStack>
+    </Container>
   );
 }
 

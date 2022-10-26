@@ -1,0 +1,13 @@
+.title {
+    position: absolute;
+    width: 97px;
+    height: 19px;
+    
+    font-family: 'Average';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    
+    color: #000000;
+}

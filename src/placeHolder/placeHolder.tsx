@@ -4,6 +4,7 @@ import { Center, Grid, GridItem, IconButton } from '@chakra-ui/react';
 import { useState } from 'react';
 import BookmarkPage from '../bookmarkPage/bookmarkPage';
 import HomePage from '../homePage/homePage';
+import SearchPage from '../searchPage/searchPage';
 
 function placeHolder() {
   const [page, setPage] = useState('homepage');
@@ -18,9 +19,16 @@ function placeHolder() {
       border={'2px'}
       gap={0}
     >
-      <GridItem overflow="auto" border="1px" bg="#FFFFFF" area={'content'}>
+      <GridItem
+        overflowY="scroll"
+        overflowX="hidden"
+        border="1px"
+        bg="#FFFFFF"
+        area={'content'}
+      >
         {page === 'homepage' && <HomePage />}
         {page === 'bookmark' && <BookmarkPage />}
+        {page === 'search' && <SearchPage />}
       </GridItem>
       <GridItem bg="#FFFFFF" area={'home-button'}>
         <Center>
