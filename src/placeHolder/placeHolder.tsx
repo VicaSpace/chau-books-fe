@@ -1,10 +1,13 @@
 import { BookOutlined, HomeOutlined } from '@ant-design/icons';
 import { SearchIcon } from '@chakra-ui/icons';
 import { Center, Grid, GridItem, IconButton } from '@chakra-ui/react';
+import { useState } from 'react';
 import BookmarkPage from '../bookmarkPage/bookmarkPage';
 import HomePage from '../homePage/homePage';
 
 function placeHolder() {
+  const [page, setPage] = useState('homepage');
+
   return (
     <Grid
       templateAreas={`"content content content"
@@ -16,8 +19,8 @@ function placeHolder() {
       gap={0}
     >
       <GridItem overflow="auto" border="1px" bg="#FFFFFF" area={'content'}>
-        <HomePage />
-        {/* <BookmarkPage /> */}
+        {page === 'homepage' && <HomePage />}
+        {page === 'bookmark' && <BookmarkPage />}
       </GridItem>
       <GridItem bg="#FFFFFF" area={'home-button'}>
         <Center>
@@ -26,6 +29,7 @@ function placeHolder() {
             aria-label="Home"
             size="lg"
             icon={<HomeOutlined />}
+            onClick={() => setPage('homepage')}
           />
         </Center>
       </GridItem>
@@ -36,6 +40,7 @@ function placeHolder() {
             aria-label="Search"
             size="lg"
             icon={<SearchIcon />}
+            onClick={() => setPage('search')}
           />
         </Center>
       </GridItem>
@@ -46,6 +51,7 @@ function placeHolder() {
             aria-label="Bookmark"
             size="lg"
             icon={<BookOutlined />}
+            onClick={() => setPage('bookmark')}
           />
         </Center>
       </GridItem>
