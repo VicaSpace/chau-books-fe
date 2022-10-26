@@ -1,7 +1,6 @@
 import { Search2Icon } from '@chakra-ui/icons';
 import {
   HStack,
-  VStack,
   Box,
   InputGroup,
   InputLeftElement,
