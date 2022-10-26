@@ -58,7 +58,7 @@ function SearchPage() {
         ))}
       </HStack>
       <Box className="title">All Books</Box>
-      <HStack overflowY="scroll">
+      <HStack overflowY="scroll" marginTop="10px">
         {books.map((book: any, i) => (
           <BookCard
             key={i}
