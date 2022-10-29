@@ -1,18 +1,32 @@
-import { HStack, Container, Box, Image } from '@chakra-ui/react';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import BookCard from '../bookCard/bookCard';
+import BookCardRow from '../bookCardRow/bookCardRow';
 import './homePage.css';
 
+interface Book {
+  img: string;
+  name: string;
+  author: string;
+  price: number;
+}
+
 function HomePage() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
     axios
       .get('http://localhost:3001/api/books')
       .then((response: AxiosResponse) => {
-        setBooks(response.data);
+        setBooks(
+          response.data.map((bookData: any) => {
+            const book: Book = {
+              ...bookData,
+              author: bookData.author.name,
+            };
+            return book;
+          })
+        );
       })
       .catch((err: any) => console.log(err));
   }, []);
@@ -26,33 +40,25 @@ function HomePage() {
   }, []);
 
   return (
-    <Container>
-      <Box className="greet-title">Hi Chau</Box>
-      <Box className="greet-subtitle">What are you reading today?</Box>
-      <HStack overflow="auto" className="books-section">
-        {books.map((book: any, i) => (
-          <BookCard
-            key={i}
-            name={book.name}
-            img={book.img}
-            author={book.author.name}
-            price={book.price}
-          />
-        ))}
-      </HStack>
-      <Container className="premium-banner">
-        <Container className="premium-text">
-          Premium free for the next 3 Months
-        </Container>
-        <Container className="premium-icon" />
-      </Container>
-      <Box className="popular-authors-title">Popular authors</Box>
-      <HStack overflow="auto" className="authors-section">
+    <div className="homepage">
+      <div className="greet-title">Hi Chau</div>
+      <div className="greet-subtitle">What are you reading today?</div>
+      <div className="books-section">
+        <BookCardRow bookData={books} />
+      </div>
+
+      <div className="premium-banner">
+        <div className="premium-text">Premium free for the next 3 Months</div>
+        <div className="premium-icon" />
+      </div>
+
+      <div className="popular-authors-title">Popular authors</div>
+      <div className="authors-section">
         {authors.map((author: any, i) => (
-          <Image key={i} borderRadius="full" boxSize="80px" src={author.img} />
+          <img key={i} className="author-img" src={author.img} />
         ))}
-      </HStack>
-    </Container>
+      </div>
+    </div>
   );
 }
 

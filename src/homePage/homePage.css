@@ -1,9 +1,11 @@
+.homepage {
+    position: static;
+    display: flex;
+    flex-direction: column;
+}
+
 .greet-title {
-    position: absolute;
-    left: 5.33%;
-    right: 68.53%;
-    top: 7.02%;
-    bottom: 88.79%;
+    position: relative;
 
     font-family: 'Average';
     font-style: normal;
@@ -21,11 +23,7 @@
 }
 
 .greet-subtitle {
-    position: absolute;
-    left: 5.33%;
-    right: 45.33%;
-    top: 11.33%;
-    bottom: 86.33%;
+    position: relative;
 
     font-family: 'Average';
     font-style: normal;
@@ -39,23 +37,13 @@
 }
 
 .books-section {
-    top: 150px;
-    display: flex;
     position: relative;
 }
 
-.authors-section {
-    position: absolute;
-    left: 8px;
-    top: 695px;
-}
-
 .premium-banner {
-    position: absolute;
+    position: relative;
     width: 327px;
     height: 157px;
-    left: 24px;
-    top: 443px;
 
     background: #FDF1C6;
     border-radius: 10px;
@@ -88,11 +76,9 @@
 }
 
 .popular-authors-title {
-    position: absolute;
+    position: relative;
     width: 111px;
     height: 19px;
-    left: 24px;
-    top: 650px;
 
     font-family: 'Average';
     font-style: normal;
@@ -101,4 +87,17 @@
     line-height: 19px;
 
     color: #000000;
+}
+
+.authors-section {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+.author-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
