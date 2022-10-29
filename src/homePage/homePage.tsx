@@ -3,12 +3,7 @@ import { useEffect, useState } from 'react';
 import BookCardRow from '../bookCardRow/bookCardRow';
 import './homePage.css';
 
-interface Book {
-  img: string;
-  name: string;
-  author: string;
-  price: number;
-}
+import { Book } from '../interface/Book';
 
 function HomePage() {
   const [books, setBooks] = useState<Book[]>([]);

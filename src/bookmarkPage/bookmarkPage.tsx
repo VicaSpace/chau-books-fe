@@ -3,12 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import BookmarkItem from '../bookmarkItem/bookmarkItem';
 
-interface Book {
-  img: string;
-  name: string;
-  author: string;
-  price: number;
-}
+import { Book } from '../interface/Book';
 
 function BookmarkPage() {
   const [books, setBooks] = useState([]);

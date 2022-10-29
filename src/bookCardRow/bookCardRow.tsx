@@ -2,12 +2,7 @@ import React from 'react';
 import './bookCardRow.css';
 import BookCard from '../bookCard/bookCard';
 
-interface Book {
-  img: string;
-  name: string;
-  author: string;
-  price: number;
-}
+import { Book } from '../interface/Book';
 
 const BookCardRow: React.FC<{ bookData: Book[] }> = ({ bookData }) => {
   return (
