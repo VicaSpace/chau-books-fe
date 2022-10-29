@@ -1,16 +1,28 @@
 import './App.css';
-import Placeholder from './placeHolder/placeHolder';
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { ChakraProvider, Container } from '@chakra-ui/react';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import SearchPage from './searchPage/searchPage';
+import HomePage from './homePage/homePage';
+import BookmarkPage from './bookmarkPage/bookmarkPage';
+import NavBar from './navBar/navBar';
 
 function App() {
   return (
     <ChakraProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Placeholder />} />
-        </Routes>
+        <Container width="375px" height="812px" className="layout">
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/bookmark" element={<BookmarkPage />} />
+            </Routes>
+          </div>
+          <div className="navbar-layout">
+            <NavBar />
+          </div>
+        </Container>
       </BrowserRouter>
     </ChakraProvider>
   );
