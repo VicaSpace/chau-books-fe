@@ -1,6 +1,8 @@
 .book-card {
     width: 116px;
     height: 249px;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-name {
@@ -56,4 +58,9 @@
     flex: none;
     order: 3;
     flex-grow: 0;
+}
+
+.book-img {
+    width:111.54px;
+    height: 151.19px;
 }
