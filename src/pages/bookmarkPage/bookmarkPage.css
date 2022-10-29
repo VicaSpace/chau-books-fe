@@ -1,8 +1,3 @@
-.bookmark-page {
-    display: flex;
-    flex-direction: column;
-}
-
 .bookmark-page-title {
     position: absolute;
     width: 68px;
