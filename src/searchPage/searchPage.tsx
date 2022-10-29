@@ -1,74 +1,62 @@
 import { Search2Icon } from '@chakra-ui/icons';
-import {
-  HStack,
-  Box,
-  InputGroup,
-  InputLeftElement,
-  Input,
-  IconButton,
-} from '@chakra-ui/react';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import BookCard from '../bookCard/bookCard';
+import BookCardRow from '../bookCardRow/bookCardRow';
 import './searchPage.css';
 
+interface Book {
+  img: string;
+  name: string;
+  author: string;
+  price: number;
+}
+
 function SearchPage() {
-  const [books, setBooks] = useState([]);
-  const [searchBooks, setSearchBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
+  const [searchBooks, setSearchBooks] = useState<Book[]>([]);
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     axios
       .get('http://localhost:3001/api/books')
       .then((response: AxiosResponse) => {
-        setBooks(response.data);
-        setSearchBooks(response.data);
+        const books = response.data.map((bookData: any) => {
+          const book: Book = {
+            ...bookData,
+            author: bookData.author.name,
+          };
+          return book;
+        });
+        return books;
+      })
+      .then((books) => {
+        setBooks(books);
+        setSearchBooks(books);
       })
       .catch((err: any) => console.log(err));
   }, []);
 
   return (
-    <div>
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <IconButton
-            aria-label="search"
-            icon={<Search2Icon />}
-            onClick={(value) => console.log(value)}
-          />
-        </InputLeftElement>
-        <Input
+    <div className="search-page">
+      <div className="input-group">
+        <Search2Icon className="search-icon" />
+        <input
+          className="search-input"
           type="text"
           placeholder="Search"
           value={searchText}
           onChange={({ target }) => setSearchText(target.value)}
         />
-      </InputGroup>
+      </div>
 
-      <Box className="title">Search Books</Box>
-      <HStack overflowY="scroll">
-        {searchBooks.map((book: any, i) => (
-          <BookCard
-            key={i}
-            name={book.name}
-            img={book.img}
-            author={book.author.name}
-            price={book.price}
-          />
-        ))}
-      </HStack>
-      <Box className="title">All Books</Box>
-      <HStack overflowY="scroll" marginTop="10px">
-        {books.map((book: any, i) => (
-          <BookCard
-            key={i}
-            name={book.name}
-            img={book.img}
-            author={book.author.name}
-            price={book.price}
-          />
-        ))}
-      </HStack>
+      <div className="title">Search Books</div>
+      <div className="search-books">
+        <BookCardRow bookData={searchBooks} />
+      </div>
+      <div className="title">All Books</div>
+      <div className="all-books">
+        <BookCardRow bookData={books} />
+      </div>
     </div>
   );
 }

@@ -1,12 +1,35 @@
+.search-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 327px;
+    height: 40px;
+    margin: 24px;
+}
+
+.search-icon {
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+}
+
 .title {
     width: 97px;
     height: 19px;
-    
+
     font-family: 'Average';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    
+
     color: #000000;
 }
