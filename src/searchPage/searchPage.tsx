@@ -49,12 +49,13 @@ function SearchPage() {
         />
       </div>
 
-      <div className="title">Search Books</div>
-      <div className="search-books">
+      <div className="result-books">
+        <div className="title">Search Books</div>
         <BookCardRow bookData={searchBooks} />
       </div>
-      <div className="title">All Books</div>
+
       <div className="all-books">
+        <div className="title">All Books</div>
         <BookCardRow bookData={books} />
       </div>
     </div>

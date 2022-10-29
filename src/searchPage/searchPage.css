@@ -4,21 +4,16 @@
 }
 
 .input-group {
-    position: relative;
     display: flex;
     flex-direction: row;
     width: 327px;
     height: 40px;
-    margin: 24px;
-}
-
-.search-icon {
-    justify-content: center;
     align-items: center;
 }
 
 .search-input {
     width: 100%;
+    margin-left: 10px;
 }
 
 .title {
@@ -32,4 +27,18 @@
     line-height: 19px;
 
     color: #000000;
+}
+
+.result-books {
+    left: 24px;
+    top: 218px;
+    display: flex;
+    flex-direction: column;
+}
+
+.all-books {
+    left: 24px;
+    top: 556px;
+    display: flex;
+    flex-direction: column;
 }
