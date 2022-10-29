@@ -1,3 +1,8 @@
+.bookmark-page {
+    display: flex;
+    flex-direction: column;
+}
+
 .bookmark-page-title {
     position: absolute;
     width: 68px;
@@ -68,8 +73,13 @@
 
 .book-list {
     position: absolute;
-    height: 500px;
     top: 170px;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    padding: 24px;
 }
 
 .book-title {

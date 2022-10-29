@@ -1,8 +1,14 @@
-import { Box, Button, Image, VStack, HStack } from '@chakra-ui/react';
 import './bookmarkPage.css';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import LinesEllipsis from 'react-lines-ellipsis';
+import BookmarkItem from '../bookmarkItem/bookmarkItem';
+
+interface Book {
+  img: string;
+  name: string;
+  author: string;
+  price: number;
+}
 
 function BookmarkPage() {
   const [books, setBooks] = useState([]);
@@ -11,47 +17,32 @@ function BookmarkPage() {
     axios
       .get('http://localhost:3001/api/books')
       .then((response: AxiosResponse) => {
-        setBooks(response.data);
+        setBooks(
+          response.data.map((bookData: any) => {
+            const book: Book = {
+              ...bookData,
+              author: bookData.author.name,
+            };
+            return book;
+          })
+        );
       })
-      .catch((err) => console.log(err));
+      .catch((err: any) => console.log(err));
   }, []);
 
   return (
-    <VStack>
-      <Box className="bookmark-page-title">My Books</Box>
-      <Box className="button-section">
-        <Button className="tab-button active">Rated Books</Button>
-        <Button className="tab-button">Bookmarked</Button>
-      </Box>
-      <Box className="book-list" overflow="auto">
-        {books.map((book, i) => (
-          <HStack key={i} h="90px" padding="20px">
-            <Image
-              padding={'5px'}
-              w={'57.94px'}
-              h={'78.54px'}
-              src={(book as any).img}
-              alt={(book as any).name}
-            />
-
-            <VStack>
-              <Box className="book-title">
-                <LinesEllipsis
-                  text={(book as any).name}
-                  maxLine={2}
-                  ellipsis="..."
-                  trimRight
-                  basedOn="letters"
-                />
-              </Box>
-              <Box className="book-author">{(book as any).author.name}</Box>
-            </VStack>
-
-            <Box>${(book as any).price}</Box>
-          </HStack>
+    <div className="bookmark-page">
+      <div className="bookmark-page-title">My Books</div>
+      <div className="button-section">
+        <button className="tab-button active">Rated Books</button>
+        <button className="tab-button">Bookmarked</button>
+      </div>
+      <div className="book-list">
+        {books.map((book: Book, i) => (
+          <BookmarkItem key={i} {...book} />
         ))}
-      </Box>
-    </VStack>
+      </div>
+    </div>
   );
 }
 
