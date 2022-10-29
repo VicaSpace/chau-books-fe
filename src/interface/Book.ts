@@ -4,3 +4,5 @@ export interface Book {
   author: string;
   price: number;
 }
+
+// TODO: create Author interface & apply

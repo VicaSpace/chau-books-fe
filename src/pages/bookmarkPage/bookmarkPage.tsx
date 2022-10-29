@@ -1,28 +1,15 @@
 import './bookmarkPage.css';
-import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import BookmarkItem from '../../components/bookmarkItem/bookmarkItem';
 
 import { Book } from '../../interface/Book';
+import { getBooks } from '../../utils/api';
 
 function BookmarkPage() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/api/books')
-      .then((response: AxiosResponse) => {
-        setBooks(
-          response.data.map((bookData: any) => {
-            const book: Book = {
-              ...bookData,
-              author: bookData.author.name,
-            };
-            return book;
-          })
-        );
-      })
-      .catch((err: any) => console.log(err));
+    getBooks().then(setBooks).catch(console.log);
   }, []);
 
   return (

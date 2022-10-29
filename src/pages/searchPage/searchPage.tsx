@@ -1,7 +1,7 @@
 import { Search2Icon } from '@chakra-ui/icons';
-import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import BookCardRow from '../../components/bookCardRow/bookCardRow';
+import { getBooks } from '../../utils/api';
 import './searchPage.css';
 
 interface Book {
@@ -17,23 +17,12 @@ function SearchPage() {
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/api/books')
-      .then((response: AxiosResponse) => {
-        const books = response.data.map((bookData: any) => {
-          const book: Book = {
-            ...bookData,
-            author: bookData.author.name,
-          };
-          return book;
-        });
-        return books;
-      })
+    getBooks()
       .then((books) => {
         setBooks(books);
         setSearchBooks(books);
       })
-      .catch((err: any) => console.log(err));
+      .catch(console.log);
   }, []);
 
   return (
