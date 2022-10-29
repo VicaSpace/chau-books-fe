@@ -2,10 +2,10 @@ import './App.css';
 import React from 'react';
 import { ChakraProvider, Container } from '@chakra-ui/react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import SearchPage from './searchPage/searchPage';
-import HomePage from './homePage/homePage';
-import BookmarkPage from './bookmarkPage/bookmarkPage';
-import NavBar from './navBar/navBar';
+import SearchPage from './pages/searchPage/searchPage';
+import HomePage from './pages/homePage/homePage';
+import BookmarkPage from './pages/bookmarkPage/bookmarkPage';
+import NavBar from './components/navBar/navBar';
 
 function App() {
   return (

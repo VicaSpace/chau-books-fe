@@ -2,7 +2,7 @@ import React from 'react';
 import './bookCardRow.css';
 import BookCard from '../bookCard/bookCard';
 
-import { Book } from '../interface/Book';
+import { Book } from '../../interface/Book';
 
 const BookCardRow: React.FC<{ bookData: Book[] }> = ({ bookData }) => {
   return (

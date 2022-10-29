@@ -1,9 +1,9 @@
 import './bookmarkPage.css';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import BookmarkItem from '../bookmarkItem/bookmarkItem';
+import BookmarkItem from '../../components/bookmarkItem/bookmarkItem';
 
-import { Book } from '../interface/Book';
+import { Book } from '../../interface/Book';
 
 function BookmarkPage() {
   const [books, setBooks] = useState([]);

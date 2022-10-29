@@ -1,7 +1,7 @@
 import { Search2Icon } from '@chakra-ui/icons';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import BookCardRow from '../bookCardRow/bookCardRow';
+import BookCardRow from '../../components/bookCardRow/bookCardRow';
 import './searchPage.css';
 
 interface Book {

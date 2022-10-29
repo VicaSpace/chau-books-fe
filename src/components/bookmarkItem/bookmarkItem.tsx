@@ -3,7 +3,7 @@ import './bookmarkItem.css';
 import LinesEllipsis from 'react-lines-ellipsis';
 import bookmarkIcon from './bookmark.png';
 
-import { Book } from '../interface/Book';
+import { Book } from '../../interface/Book';
 
 const BookmarkItem: React.FC<Book> = ({ img, name, author, price }) => {
   return (

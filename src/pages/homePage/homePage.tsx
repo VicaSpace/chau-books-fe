@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import BookCardRow from '../bookCardRow/bookCardRow';
+import BookCardRow from '../../components/bookCardRow/bookCardRow';
 import './homePage.css';
 
-import { Book } from '../interface/Book';
+import { Book } from '../../interface/Book';
 
 function HomePage() {
   const [books, setBooks] = useState<Book[]>([]);

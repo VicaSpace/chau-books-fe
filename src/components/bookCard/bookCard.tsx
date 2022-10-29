@@ -2,7 +2,7 @@ import React from 'react';
 import './bookCard.css';
 import LinesEllipsis from 'react-lines-ellipsis';
 
-import { Book } from '../interface/Book';
+import { Book } from '../../interface/Book';
 
 const BookCard: React.FC<Book> = ({ img, name, author, price }) => {
   return (
